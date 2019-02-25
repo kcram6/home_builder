@@ -1,0 +1,23 @@
+@font-face {
+    font-family: bodyCopy;
+    src: url(fonts/AvenirLTStd-Medium.otf);
+}
+
+@font-face {
+    font-family: headings;
+    src: url(fonts/AvenirLTStd-Heavy.otf);
+}
+  
+
+/* gradient_image\ copy.svg */
+body {
+    background-image: url('gradient_image_copy.png');
+    background-size:cover; 
+    background-repeat: fixed; 
+    font-family: bodyCopy;
+}
+
+.wrapper {
+    width:80%;
+    margin:0 auto;
+}
