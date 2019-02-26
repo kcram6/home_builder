@@ -6,7 +6,91 @@
     </head>
     <body>
         <div id='app'>
-            
+            <!-- Landing page -->
+            <section style='display:none'>
+                <div class='wrapper'>
+                
+                    <div class='center'>
+                        <img class='landingLogo' src='logo_png.png' alt='interstate homes'><br>
+                        <button class='landingButton' v-on:click='registerClicked()'>REGISTER</button>&nbsp; &nbsp; &nbsp;
+                        <button class='landingButton' v-on:click='signInClicked()'>SIGN IN</button>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!--Sign In Page-->
+            <section style='display:none;'>
+                <div class='wrapper'>
+                    <img class='signInLogo' src='logo_png.png' alt='interstate logo'><br>
+                    <div class='signInContainer'>
+                        <div class='center'>
+                            <h1 class='signInHeading'>SIGN IN</h1>
+                            <img class='userLogo' src='user-solid.svg' alt='user'>
+                            <input class='signInInput' type='email' placeholder='Email address'><br>
+                            <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
+                            <input class='signInInput' type='password' placeholder='Password'><br> -->
+                            <button class='signInButton'>SIGN IN</button>
+                            <p class='createAccountText'>Don't have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign Up</span></p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!--user base-->
+            <section style='display: none'>
+                <div class='wrapper'>
+                    <div class='center'>
+                        <img class='userBaseLogo' src='logo_png.png' alt='interstate homes'>
+                    </div>
+                    <div class='userBaseContainer'>
+                        <div class='wrapper'>
+                            <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome User!</h1> <!--input user name-->
+
+                            <button class='newPlanButton'><span class='plusSign'>+</span><br>
+                            New Plan
+                            </button>
+                            <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
+                            <hr>
+                            <ul><!--v for-->
+                                <li class='planDiv'>
+                                    Name  <span style='float:right'>Date: &nbsp; 2/17/2018 &nbsp; | &nbsp;&nbsp;<img class='editButton' src='pencil.png' alt='edit'></span>
+                                </li>
+
+                                <li class='planDiv'>
+                                        Name  <span style='float:right'>Date: &nbsp; 2/17/2018 &nbsp; | &nbsp;&nbsp;<img class='editButton' src='pencil.png' alt='edit'></span>
+                                </li>
+
+                                <li class='planDiv'>
+                                    Name  <span style='float:right'>Date: &nbsp; 2/17/2018 &nbsp; | &nbsp;&nbsp;<img class='editButton' src='pencil.png' alt='edit'></span>
+                                </li>
+                            </div>
+                            
+                        </div>    
+                    </div>
+                </div>
+            </section>
+
+
+            <!--Register Page-->
+            <section>
+                    <div class='wrapper'>
+                        <img class='signInLogo' src='logo_png.png' alt='interstate logo'><br>
+                        <div class='signInContainer'>
+                            <div class='center'>
+                                <h1 class='signInHeading'>REGISTER</h1>
+                                <img class='userLogo' src='user-solid.svg' alt='user'>
+                                <input class='signInInput' type='email' placeholder='Email address'><br>
+                                <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
+                                <input class='signInInput' type='password' placeholder='Password'><br> -->
+                                <button class='registerButton'>REGISTER</button>
+                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign In</span></p>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
 
             
         </div>

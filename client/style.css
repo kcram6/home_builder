@@ -8,16 +8,211 @@
     src: url(fonts/AvenirLTStd-Heavy.otf);
 }
   
-
+/* box-shadow: 0px 3px 3px rgba(0,0,0,0.2); */
 /* gradient_image\ copy.svg */
 body {
     background-image: url('gradient_image_copy.png');
     background-size:cover; 
-    background-repeat: fixed; 
+    background-repeat: no-repeat; 
+    background-color:lightgray;
     font-family: bodyCopy;
+    color: #838383;
 }
 
 .wrapper {
     width:80%;
     margin:0 auto;
 }
+
+.center {
+    text-align: center;
+}
+
+
+li  {
+    list-style-type: none;
+}
+
+ul  {
+    padding-left:0px;
+}
+
+
+.landingLogo {
+    margin-top:10%;
+    /* 
+    for mobile!!
+     */
+    height: 30%;
+    width: 40%;
+}
+
+
+.signInLogo {
+    height:20%;
+    margin-top:1em;
+    width:30%;
+}
+
+
+.landingButton {
+    background-color:#eee;
+    border-radius: 5px;
+    padding:8px 20px;
+    font-family: bodyCopy;
+    border: 2px solid #838383;
+    margin:20px;
+    color: #838383;
+    font-size:0.8em;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+}
+
+.landingButton:hover {
+    cursor: pointer;
+}
+
+.signInContainer {
+    /* background-color:#fff;
+    border: 2px solid #838383;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2); */
+    margin:40px 0px;
+    padding: 40px 40px;
+}
+
+.signInInput {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    font-size:0.8em;
+    border: 0px solid #838383;
+    padding:10px 10px;
+    margin-bottom:40px;
+    width:50%;
+}
+
+
+textarea:focus, input:focus, button:focus{
+    outline: none !important;
+    border: 2px solid #fbaf19;
+
+    
+}
+
+.userLogo, .userLock {
+    height:20px;
+    width:20px;
+    margin-right:10px;
+}
+
+.signInButton {
+    background-color:#fbaf19;
+    padding:10px 10px;
+    width: calc( 50% + 65px );
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    margin-bottom:60px;
+
+
+}
+
+.registerButton {
+    background-color:#fbaf19;
+    padding:10px 10px;
+    width: calc( 50% + 65px );
+    color: #fff;
+    border-radius: 5px;
+    font-size: 1em;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    margin-bottom:60px;
+}
+
+.createAccountText {
+    font-size:0.8em;
+    margin-bottom:40px;
+}
+
+.signInButton:hover {
+    cursor: pointer;
+}
+
+.createAccountLink {
+    border: 2px solid #838383;
+    padding: 5px 8px;
+    border-radius:5px;
+    background-color:#f4f4f4;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    font-size:0.5em;
+
+}
+
+
+.createAccountLink:hover {
+    cursor: pointer;
+}
+
+
+.signInHeading {
+    font-size:1.5em;
+    color:#707070;
+    margin-bottom:15px;
+}
+
+.userBaseLogo {
+    height:20%;
+    margin-top:1em;
+    width:30%;
+}
+
+.userBaseContainer {
+    /* background-color:#fff; */
+    margin:40px;
+    /* padding:40px; */
+}
+
+.newPlanButton {
+    background-color:#fbaf19;
+    padding:3px 15px;
+    border-radius: 5px;
+    color:#fff;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    float:right;
+}
+
+.planDiv {
+    width:100%;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    background-color:#fff;
+    border:2px solid #bdbdbd;
+    margin:30px 0px;
+    padding:15px;
+}
+
+
+.newPlanButton:hover {
+    cursor:pointer;
+}
+
+.plusSign {
+    font-size:2em;
+}
+
+.editButton {
+    height:17px;
+    width:17px;
+
+}
+
+.editButton:hover {
+    cursor:pointer;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .landingLogo {
+        height:70%;
+        width:80%;
+    }
+  }
+
