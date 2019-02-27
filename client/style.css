@@ -19,6 +19,9 @@ body {
     color: #838383;
 }
 
+
+
+
 .wrapper {
     width:80%;
     margin:0 auto;
@@ -98,10 +101,11 @@ textarea:focus, input:focus, button:focus{
     
 }
 
-.userLogo, .userLock {
+.userLogo, .userLock, .userEmail {
     height:20px;
     width:20px;
     margin-right:10px;
+    
 }
 
 .signInButton {
@@ -137,6 +141,10 @@ textarea:focus, input:focus, button:focus{
     cursor: pointer;
 }
 
+.registerButton:hover {
+    cursor: pointer;
+}
+
 .createAccountLink {
     border: 2px solid #838383;
     padding: 5px 8px;
@@ -152,12 +160,53 @@ textarea:focus, input:focus, button:focus{
     cursor: pointer;
 }
 
+input[type=text] {
+    color:#707070;
+}
+
 
 .signInHeading {
     font-size:1.5em;
     color:#707070;
     margin-bottom:15px;
 }
+
+.registerHeading {
+    font-size:1.5em;
+    color:#707070;
+    margin-bottom:25px;
+}
+
+
+.smallerWrapper {
+    width:70%;
+    margin: 0 auto;
+    background-color:#fff;
+    z-index:50;
+    border: 2px solid #838383;
+    box-shadow: 0px 6px 6px rgba(0,0,0,0.4);
+    position: absolute;
+    top:20%;
+    padding:40px;
+    left:13%;
+}
+
+
+.closeButton {
+    height:20px;
+    width:20px;
+    float:right;
+    margin-top:10px;
+}
+
+.closeButton:hover {
+    cursor: pointer;
+}
+
+h2 {
+    margin-bottom:0px;
+}
+
 
 .userBaseLogo {
     height:20%;
@@ -166,9 +215,7 @@ textarea:focus, input:focus, button:focus{
 }
 
 .userBaseContainer {
-    /* background-color:#fff; */
     margin:40px;
-    /* padding:40px; */
 }
 
 .newPlanButton {
@@ -207,6 +254,119 @@ textarea:focus, input:focus, button:focus{
 .editButton:hover {
     cursor:pointer;
 }
+
+.registerInput {
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    font-size:0.8em;
+    border: 0px solid #838383;
+    padding:10px 10px;
+    margin-bottom:50px;
+    width:50%;
+    
+}
+
+.signInForm {
+    margin-left:30%;
+}
+
+.shortHR {
+    width:57%;
+    margin-bottom:10px;
+    /* text-align:center; */
+}
+
+.saveFormButton {
+    background-color:#fbaf19;
+    color:#fff;
+    position:fixed;
+    top:90%;
+    left:80%;
+    padding: 10px 15px;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    font-size:0.8em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* start of selection code */
+
+
+
+  .selectionButtons {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+
+.imgSelection {
+    height: 150px;
+}
+
+  .selectionButtons > div {
+    flex: 1;
+    padding: 0.5rem;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+
+  label {
+    width:200px;
+    display: block;
+    background: white;
+    border: 2px solid hsla(150, 5%, 65%, 0.5);
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+  }
+
+  input[type="radio"]:checked + label {
+    background: #c9dbee;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    
+  }
+  
+  p {
+    font-weight: 900;
+  }
+  
+  /* end of selection code */
+  
+  @media only screen and (max-width: 700px) {
+    .selectionButtons {
+      flex-direction: column;
+    }
+  }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media only screen and (max-width: 800px) {

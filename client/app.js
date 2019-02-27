@@ -1,14 +1,20 @@
 var app = new Vue({
     el: '#app',
     data: {
-        // landingRegisterButton: false,
-        // landingSignInButton: false,
+        showLandingPage: true,
+        showRegisterPage: false,
+        showSignInPage: false,
+        showChoosePlan: false,
+        showUserBase: false,
+        
         plans : [
-            hi,
-            hi
         ]
     },
     methods: {
+        addPlan: function() {
+            console.log('button clicked');
+        }
+
         // registerClicked: function() {
         //     landingRegisterButton = true;
         //     console.log('register clicked');

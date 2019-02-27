@@ -2,6 +2,7 @@
 <html>
     <head>
         <link rel='stylesheet' href='style.css'>
+        <link href='style.scss'>
         <title>Interstate Home Builder</title>
     </head>
     <body>
@@ -39,7 +40,7 @@
             </section>
 
             <!--user base-->
-            <section style='display: none'>
+            <section>
                 <div class='wrapper'>
                     <div class='center'>
                         <img class='userBaseLogo' src='logo_png.png' alt='interstate homes'>
@@ -48,7 +49,7 @@
                         <div class='wrapper'>
                             <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome User!</h1> <!--input user name-->
 
-                            <button class='newPlanButton'><span class='plusSign'>+</span><br>
+                            <button v-on:click='addPlan()' class='newPlanButton'><span class='plusSign'>+</span><br>
                             New Plan
                             </button>
                             <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
@@ -74,21 +75,135 @@
 
 
             <!--Register Page-->
-            <section>
+            <section style='display:none;'>
                     <div class='wrapper'>
                         <img class='signInLogo' src='logo_png.png' alt='interstate logo'><br>
                         <div class='signInContainer'>
                             <div class='center'>
-                                <h1 class='signInHeading'>REGISTER</h1>
-                                <img class='userLogo' src='user-solid.svg' alt='user'>
-                                <input class='signInInput' type='email' placeholder='Email address'><br>
-                                <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
-                                <input class='signInInput' type='password' placeholder='Password'><br> -->
-                                <button class='registerButton'>REGISTER</button>
-                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign In</span></p>
+                                <h1 class='registerHeading'>REGISTER</h1>
                             </div>
+                            <div class='wrapper signInForm'>
+                                <div class='shortHR'>
+                                    Name
+                                    <hr>
+                                </div>
+                                <img class='userLogo' src='user-solid.svg' alt='user'>
+                                <input class='registerInput' type='text' placeholder='Your full name'><br>
+                                <div class='shortHR'>
+                                    Email Address
+                                    <hr>
+                                </div>
+                                
+                                <img class='userEmail' src='email.png' alt='email'>
+                                <input class='registerInput' type='email' placeholder='email@example.com'><br>
+                                <div class='shortHR'>
+                                    Password
+                                    <hr>
+                                </div>
+                                <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
+                                <input class='registerInput' type='password' placeholder='Password (at least 6 characters)'><br>
+                                <button class='registerButton'>REGISTER</button> 
+                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign In</span></p>
                             
+                            </div>
                         </div>
+                    </div>
+                </section>
+
+                <!--Plan Picker-->
+                <section >
+                    <div class='smallerWrapper'>
+                        <img class='closeButton' src='x.png' alt='close'>
+                        <span style='color:#707070'>Name of Plan:</span> &nbsp;&nbsp;
+                        <input type='text' class='registerInput'>
+                        <h3 style='display:inline-block; margin-bottom:60px;'>Select one item from each category:</h3><br>
+                        <h2>Exterior Door:</h2>
+                        <hr>
+
+
+                        <section class='selectionButtons'>
+                                <div>
+                                  <input type="radio" id="control_01" name="select" value="1" >
+                                  <label for="control_01">
+                                    
+                                    <img class='imgSelection' src='exdoor1.jpg' alt='door 1'>
+                                  </label>
+                                </div>
+                                <div>
+                                  <input type="radio" id="control_02" name="select" value="2">
+                                  <label for="control_02">
+                                    <!-- <h2>Latice Exterior</h2> -->
+                                    <img class='imgSelection' src='exdoor2.jpg' alt='door 2'>
+                                  </label>
+                                </div>
+                                <div>
+                                  <input type="radio" id="control_03" name="select" value="3">
+                                  <label for="control_03">
+                                    <img class='imgSelection' src='exdoor3.png' alt='door 3'>
+                                  </label>
+                                </div>
+                                
+                                
+                        </section>
+
+
+
+
+                        <h2>Interior Door:</h2>
+                        <hr>
+
+
+                        <section class='selectionButtons'>
+                                <div>
+                                  <input type="radio" id="control_04" name="select" value="4" >
+                                  <label for="control_04">
+                                    
+                                    <img class='imgSelection' src='intdoor1.jpg' alt='door 1'>
+                                  </label>
+                                </div>
+                                <div>
+                                  <input type="radio" id="control_05" name="select" value="5">
+                                  <label for="control_05">
+                                    <!-- <h2>Latice Exterior</h2> -->
+                                    <img class='imgSelection' src='intdoor2.png' alt='door 2'>
+                                  </label>
+                                </div>
+                                <div>
+                                  <input type="radio" id="control_06" name="select" value="6">
+                                  <label for="control_06">
+                                    <img class='imgSelection' src='intdoor3.png' alt='door 3'>
+                                  </label>
+                                </div>
+                                
+                                
+                        </section>
+
+
+
+
+                        <h2>Exterior Siding:</h2>
+                        <hr>
+
+
+
+                        <h2>Flooring:</h2>
+                        <hr>
+
+                        <h2>Countertop:</h2>
+                        <hr>
+
+                        
+
+
+
+                        
+
+                                <div style='height:1000px'></div>
+
+                        
+
+                        <button class='saveFormButton'>SAVE</button>
+                        
                     </div>
                 </section>
 
