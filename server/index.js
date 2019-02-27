@@ -15,6 +15,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const model = require('./model.js');
+const cors = require('cors');
 
 
 
@@ -25,36 +26,35 @@ const model = require('./model.js');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cors())
 
 
 
 
 // LIST ACTION
-app.get('/vehicles', (req, res) => {
-  // console.log("the color:", req.query.color);
-
-  Vehicle.find().then(function (vehicles) {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.json(vehicles);
+app.get('/plans', (req, res) => {
+  model.Plan.find().then(function (plans) {
+    res.json(plans);
   });
 });
 
+
 // CREATE ACTION
-app.post('/vehicles', (req, res) => {
+app.post('/plans', (req, res) => {
   console.log("the body", req.body);
 
-  if (!req.body.make || !req.body.model || !req.body.range) {
+  if (!req.body.planName) {
     res.sendStatus(422);
     return;
   }
 
-  let vehicle = new Vehicle({
+  let plan = new Vehicle({
     make: req.body.make,
     model: req.body.model,
     range: req.body.range
   });
 
-  vehicle.save().then(function () {
+  plan.save().then(function () {
     res.set("Access-Control-Allow-Origin", "*");
     res.sendStatus(201);
   });

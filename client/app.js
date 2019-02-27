@@ -6,10 +6,18 @@ var app = new Vue({
         showSignInPage: false,
         showChoosePlan: false,
         showUserBase: false,
+
+        //form inputs
+        registerName: '',
+        registerEmail:'',
+        signInEmail: '',
         
 
         
-        plans : []
+        plans : [],
+
+        //plan attributes
+        planName: '',
     },
     methods: {
         addPlan: function() {

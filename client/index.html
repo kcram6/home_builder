@@ -28,7 +28,7 @@
                         <div class='center'>
                             <h1 class='signInHeading'>SIGN IN</h1>
                             <img class='userLogo' src='user-solid.svg' alt='user'>
-                            <input class='signInInput' type='email' placeholder='Email address'><br>
+                            <input v-model='signInEmail' class='signInInput' type='email' placeholder='Email address'><br>
                             <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
                             <input class='signInInput' type='password' placeholder='Password'><br> -->
                             <button class='signInButton'>SIGN IN</button>
@@ -88,14 +88,14 @@
                                     <hr>
                                 </div>
                                 <img class='userLogo' src='user-solid.svg' alt='user'>
-                                <input class='registerInput' type='text' placeholder='Your full name'><br>
+                                <input v-model='registerName' class='registerInput' type='text' placeholder='Your full name'><br>
                                 <div class='shortHR'>
                                     Email Address
                                     <hr>
                                 </div>
                                 
                                 <img class='userEmail' src='email.png' alt='email'>
-                                <input class='registerInput' type='email' placeholder='email@example.com'><br>
+                                <input v-model='registerEmail' class='registerInput' type='email' placeholder='email@example.com'><br>
                                 <!-- <div class='shortHR'>
                                     Password
                                     <hr>
