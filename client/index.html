@@ -8,20 +8,20 @@
     <body>
         <div id='app'>
             <!-- Landing page -->
-            <section style='display:none'>
+            <section v-show="showLandingPage">
                 <div class='wrapper'>
                 
                     <div class='center'>
                         <img class='landingLogo' src='logo_png.png' alt='interstate homes'><br>
-                        <button class='landingButton' v-on:click='registerClicked()'>REGISTER</button>&nbsp; &nbsp; &nbsp;
-                        <button class='landingButton' v-on:click='signInClicked()'>SIGN IN</button>
+                        <button class='landingButton' v-on:click="registerClicked">REGISTER</button>&nbsp; &nbsp; &nbsp;
+                        <button class='landingButton' v-on:click='signInClicked'>SIGN IN</button>
                     </div>
                     
                 </div>
             </section>
 
             <!--Sign In Page-->
-            <section style='display:none;'>
+            <section v-show='showSignInPage'>
                 <div class='wrapper'>
                     <img class='signInLogo' src='logo_png.png' alt='interstate logo'><br>
                     <div class='signInContainer'>
@@ -40,7 +40,7 @@
             </section>
 
             <!--user base-->
-            <section>
+            <section v-show='showUserBase'>
                 <div class='wrapper'>
                     <div class='center'>
                         <img class='userBaseLogo' src='logo_png.png' alt='interstate homes'>
@@ -49,7 +49,7 @@
                         <div class='wrapper'>
                             <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome User!</h1> <!--input user name-->
 
-                            <button v-on:click='addPlan()' class='newPlanButton'><span class='plusSign'>+</span><br>
+                            <button class='newPlanButton'><span class='plusSign'>+</span><br>
                             New Plan
                             </button>
                             <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
@@ -75,7 +75,7 @@
 
 
             <!--Register Page-->
-            <section style='display:none;'>
+            <section v-show="showRegisterPage">
                     <div class='wrapper'>
                         <img class='signInLogo' src='logo_png.png' alt='interstate logo'><br>
                         <div class='signInContainer'>
@@ -96,14 +96,14 @@
                                 
                                 <img class='userEmail' src='email.png' alt='email'>
                                 <input class='registerInput' type='email' placeholder='email@example.com'><br>
-                                <div class='shortHR'>
+                                <!-- <div class='shortHR'>
                                     Password
                                     <hr>
                                 </div>
                                 <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
-                                <input class='registerInput' type='password' placeholder='Password (at least 6 characters)'><br>
+                                <input class='registerInput' type='password' placeholder='Password (at least 6 characters)'><br> -->
                                 <button class='registerButton'>REGISTER</button> 
-                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign In</span></p>
+                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='signInClicked' class='createAccountLink'>Sign In</span></p>
                             
                             </div>
                         </div>
@@ -111,7 +111,7 @@
                 </section>
 
                 <!--Plan Picker-->
-                <section >
+                <section v-show='showChoosePage'>
                     <div class='smallerWrapper'>
                         <img class='closeButton' src='x.png' alt='close'>
                         <span style='color:#707070'>Name of Plan:</span> &nbsp;&nbsp;
