@@ -31,7 +31,7 @@
                             <input v-model='signInEmail' class='signInInput' type='email' placeholder='Email address'><br>
                             <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
                             <input class='signInInput' type='password' placeholder='Password'><br> -->
-                            <button class='signInButton'>SIGN IN</button>
+                            <button v-on:click='signInButtonClicked' class='signInButton'>SIGN IN</button>
                             <p class='createAccountText'>Don't have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='showRegister' class='createAccountLink'>Sign Up</span></p>
                         </div>
                         
@@ -47,9 +47,9 @@
                     </div>
                     <div class='userBaseContainer'>
                         <div class='wrapper'>
-                            <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome User!</h1> <!--input user name-->
+                            <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome {{ signInEmail }}</h1> <!--input user name-->
 
-                            <button class='newPlanButton'><span class='plusSign'>+</span><br>
+                            <button v-on:click='newPlanButtonClicked' class='newPlanButton'><span class='plusSign'>+</span><br>
                             New Plan
                             </button>
                             <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
@@ -70,7 +70,7 @@
                             
                         </div>    
                     </div>
-                </div>
+                
             </section>
 
 
@@ -102,20 +102,20 @@
                                 </div>
                                 <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
                                 <input class='registerInput' type='password' placeholder='Password (at least 6 characters)'><br> -->
-                                <button class='registerButton'>REGISTER</button> 
+                                <button v-on:click='registerButtonClicked' class='registerButton'>REGISTER</button> 
                                 <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='showSignIn' class='createAccountLink'>Sign In</span></p>
                             
                             </div>
                         </div>
-                    </div>
+                    
                 </section>
 
                 <!--Plan Picker-->
-                <section v-show='showChoosePlan' style='display:none'>
+                <section v-show='showChoosePlan'>
                     <div class='smallerWrapper'>
-                        <img class='closeButton' src='x.png' alt='close'>
+                        <img v-on:click='closePlanButton' class='closeButton' src='x.png' alt='close'>
                         <span style='color:#707070'>Name of Plan:</span> &nbsp;&nbsp;
-                        <input type='text' class='registerInput'>
+                        <input v-model='planName' type='text' class='registerInput'>
                         <h3 style='display:inline-block; margin-bottom:60px;'>Select one item from each category:</h3><br>
                         <h2>Exterior Door:</h2>
                         <hr>
@@ -207,7 +207,7 @@
                     </div>
                 </section>
 
-            
+            </div>
         </div>
         <script src='vue.js'></script>
         <script src='app.js'></script>

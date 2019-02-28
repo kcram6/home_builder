@@ -45,6 +45,44 @@ var app = new Vue({
             console.log('sign in clicked');
         },
 
+        registerButtonClicked: function() {
+            this.showRegisterPage = false;
+            this.showSignInPage = true;
+            this.showUserBase = false;
+            this.showChoosePlan = false;
+            this.showLandingPage = false;
+            console.log('you registered now sign in');
+            console.log(this.registerName + " " + this.registerEmail);
+        },
+
+        signInButtonClicked: function() {
+            this.showRegisterPage = false;
+            this.showSignInPage = false;
+            this.showUserBase = true;
+            this.showChoosePlan = false;
+            this.showLandingPage = false;
+            console.log('you signed in now');
+            console.log(this.signInEmail, "sign in email");
+        },
+
+        newPlanButtonClicked: function() {
+            this.showRegisterPage = false;
+            this.showSignInPage = false;
+            this.showUserBase = false;
+            this.showChoosePlan = true;
+            this.showLandingPage = false;
+            console.log('make a new plan');
+        },
+
+        closePlanButton: function() {
+            this.showRegisterPage = false;
+            this.showSignInPage = false;
+            this.showUserBase = true;
+            this.showChoosePlan = false;
+            this.showLandingPage = false;
+            console.log('close me');
+        }
+
         
 
     },
