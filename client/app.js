@@ -7,14 +7,17 @@ var app = new Vue({
         showChoosePlan: false,
         showUserBase: false,
 
+
         //form inputs
         registerName: '',
         registerEmail:'',
         signInEmail: '',
         
 
-        
+        //data structures
         plans : [],
+        erorrs: [],
+        users: [],
 
         //plan attributes
         planName: '',
@@ -24,7 +27,7 @@ var app = new Vue({
             console.log('button clicked');
         },
 
-        registerClicked: function() {
+        showRegister: function() {
             this.showLandingPage = false;
             this.showRegisterPage = true;
             this.showSignInPage = false;
@@ -33,14 +36,17 @@ var app = new Vue({
             console.log('register clicked');
         },
 
-        signInClicked: function() {
+        showSignIn: function() {
             this.showSignInPage = true;
             this.showLandingPage = false;
             this.showRegisterPage = false;
             this.showChoosePlan = false;
             this.showUserBase = false;
             console.log('sign in clicked');
-        }
+        },
+
+        
+
     },
     created: function() {
         console.log('created app');

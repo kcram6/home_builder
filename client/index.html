@@ -13,8 +13,8 @@
                 
                     <div class='center'>
                         <img class='landingLogo' src='logo_png.png' alt='interstate homes'><br>
-                        <button class='landingButton' v-on:click="registerClicked">REGISTER</button>&nbsp; &nbsp; &nbsp;
-                        <button class='landingButton' v-on:click='signInClicked'>SIGN IN</button>
+                        <button class='landingButton' v-on:click="showRegister">REGISTER</button>&nbsp; &nbsp; &nbsp;
+                        <button class='landingButton' v-on:click='showSignIn'>SIGN IN</button>
                     </div>
                     
                 </div>
@@ -32,7 +32,7 @@
                             <!-- <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
                             <input class='signInInput' type='password' placeholder='Password'><br> -->
                             <button class='signInButton'>SIGN IN</button>
-                            <p class='createAccountText'>Don't have an account?&nbsp; &nbsp; &nbsp;<span class='createAccountLink'>Sign Up</span></p>
+                            <p class='createAccountText'>Don't have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='showRegister' class='createAccountLink'>Sign Up</span></p>
                         </div>
                         
                     </div>
@@ -103,7 +103,7 @@
                                 <img class='userLock' src='unlock-alt-solid.svg' alt='password'>
                                 <input class='registerInput' type='password' placeholder='Password (at least 6 characters)'><br> -->
                                 <button class='registerButton'>REGISTER</button> 
-                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='signInClicked' class='createAccountLink'>Sign In</span></p>
+                                <p class='createAccountText'>Already have an account?&nbsp; &nbsp; &nbsp;<span v-on:click='showSignIn' class='createAccountLink'>Sign In</span></p>
                             
                             </div>
                         </div>
