@@ -9,6 +9,7 @@ mongoose.connect('mongodb://kcram:chickensarerockstars21@ds157654.mlab.com:57654
 const User = mongoose.model('User', {
   name: String,
   email: String,
+  // password: String
   
 });
 

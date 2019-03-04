@@ -28,6 +28,9 @@ var app = new Vue({
         },
 
         showRegister: function() {
+            this.registerEmail = '';
+            this.registerName = '';
+            this.signInEmail = '';
             this.showLandingPage = false;
             this.showRegisterPage = true;
             this.showSignInPage = false;
@@ -37,6 +40,9 @@ var app = new Vue({
         },
 
         showSignIn: function() {
+            this.registerEmail = '';
+            this.registerName = '';
+            this.signInEmail = '';
             this.showSignInPage = true;
             this.showLandingPage = false;
             this.showRegisterPage = false;
@@ -66,6 +72,7 @@ var app = new Vue({
         },
 
         newPlanButtonClicked: function() {
+            this.planName = '';
             this.showRegisterPage = false;
             this.showSignInPage = false;
             this.showUserBase = false;

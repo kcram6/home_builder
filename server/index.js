@@ -1,24 +1,7 @@
-// // const bodyParser = require('body-parser');
-// const express = require('express');
-
-
-// //app and middleware setup
-// let app = express(); //calls express like a function and returns an express object that you can use to configure(app)
-// // app.use(bodyParser.urlencoded({ extended:false }));
-
-
-// app.listen(8080, () => {
-//     console.log('listening on 8080');
-// })
-
-
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const express = require('express');
 const model = require('./model.js');
-const cors = require('cors');
-
-
-
 
 
 
@@ -38,36 +21,59 @@ app.get('/plans', (req, res) => {
   });
 });
 
+app.get('/users', (req, res) => {
+  model.User.find().then(function (users) {
+    res.json(users);
+  });
+});
+
 
 // CREATE ACTION
-app.post('/plans', (req, res) => {
+app.post('/users', (req, res) => {
   console.log("the body", req.body);
 
-  if (!req.body.planName) {
+  if (!req.body.registerName || !req.body.registerEmail) {
     res.sendStatus(422);
     return;
   }
 
-  let plan = new Vehicle({
+  let user = new model.User({
+    registerEmail: req.body.registerEmail,
+    registerName: req.body.registerName
+  });
+
+  user.save().then(function () {
+    res.sendStatus(201);
+  });
+});
+
+
+app.post('/plans', (req, res) => {
+  console.log("the body", req.body);
+
+  if (!req.body.make) {
+    res.sendStatus(422);
+    return;
+  }
+
+  let plan = new model.Plan({
     make: req.body.make,
     model: req.body.model,
     range: req.body.range
   });
 
   plan.save().then(function () {
-    res.set("Access-Control-Allow-Origin", "*");
     res.sendStatus(201);
   });
 });
 
 // RETRIEVE ACTION
-app.get('/vehicles/:id', (req, res) => {
+app.get('/plans/:id', (req, res) => {
   console.log("the id:", req.params.id);
 
-  Vehicle.findOne({ _id: req.params.id }).then(function (vehicle) {
-    if (vehicle) {
-      res.set("Access-Control-Allow-Origin", "*");
-      res.json(vehicle);
+  model.Plan.findOne({ _id: req.params.id }).then(function (plan) {
+    if (plan) {
+      res.json(plan);
     } else {
       // query succeeded, but nothing found
       res.sendStatus(404);
@@ -79,17 +85,17 @@ app.get('/vehicles/:id', (req, res) => {
 });
 
 // UPDATE/REPLACE ACTION
-app.put('/vehicles/:id', (req, res) => {
+app.put('/plans/:id', (req, res) => {
   console.log("the id:", req.params.id);
 
-  Vehicle.findOne({ _id: req.params.id }).then(function (vehicle) {
-    if (vehicle) {
-      vehicle.make = req.body.make;
-      vehicle.model = req.body.model;
-      vehicle.range = req.body.range;
+  model.Plan.findOne({ _id: req.params.id }).then(function (plan) {
+    if (plan) {
+      plan.make = req.body.make;
+      plan.model = req.body.model;
+      plan.range = req.body.range;
 
-      vehicle.save().then(function () {
-        res.set("Access-Control-Allow-Origin", "*");
+      plan.save().then(function () {
+        
         res.sendStatus(200);
       });
     } else {
@@ -103,21 +109,22 @@ app.put('/vehicles/:id', (req, res) => {
 });
 
 // DELETE ACTION
-app.delete('/vehicles/:id', (req, res) => {
+app.delete('/plans/:id', (req, res) => {
   console.log("the id:", req.params.id);
 
-  Vehicle.findOne({ _id: req.params.id }).then(function (vehicle) {
-    if (vehicle) {
-      vehicle.delete().then(function () {
-        res.set("Access-Control-Allow-Origin", "*");
-        res.json(vehicle);
+  model.Plan.findOne({ _id: req.params.id }).then(function (plan) {
+    if (plan) {
+      plan.delete().then(function () {
+        res.json(plan);
       });
     } else {
       // query succeeded, but nothing found
+      alert('no id matching found');
       res.sendStatus(404);
     }
   }, function (err) {
     // query error!
+    alert('query error')
     res.sendStatus(400);
   });
 });
