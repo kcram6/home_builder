@@ -22,7 +22,10 @@ body {
     color: #838383;
 }
 
-
+.inline {
+    display:inline-block;
+    margin:20px;
+}
 
 
 .wrapper {

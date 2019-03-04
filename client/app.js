@@ -21,6 +21,11 @@ var app = new Vue({
 
         //plan attributes
         planName: '',
+        pickedExtDoor:'',
+        pickedIntDoor: '',
+        pickedSiding:'',
+        pickedFlooring:'',
+        pickedCountertop:'',
     },
     methods: {
         addPlan: function() {
