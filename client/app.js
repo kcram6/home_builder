@@ -25,7 +25,7 @@ var app = new Vue({
         pickedIntDoor: '',
         pickedSiding:'',
         pickedFlooring:'',
-        pickedCountertop:'',
+        pickedCounter:'',
     },
     methods: {
         addPlan: function() {
@@ -92,6 +92,11 @@ var app = new Vue({
             this.showUserBase = true;
             this.showChoosePlan = false;
             this.showLandingPage = false;
+            pickedExtDoor = '';
+            pickedIntDoor = '';
+            pickedSiding = '';
+            pickedFlooring = '';
+            pickedCounter = '';
             console.log('close me');
         }
 

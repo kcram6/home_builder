@@ -140,49 +140,105 @@
                         
 
 
-
+                        <br><br><br>
                         <h2>Interior Door:</h2>
                         <hr>
 
 
-                        <section class='selectionButtons'>
-                                <div>
-                                  <input type="radio" id="control_04" name="select" value="4" >
-                                  <label for="control_04">
-                                    
-                                    <img class='imgSelection' src='intdoor1.jpg' alt='door 1'>
-                                  </label>
-                                </div>
-                                <div>
-                                  <input type="radio" id="control_05" name="select" value="5">
-                                  <label for="control_05">
-                                     <h2>Latice Exterior</h2> 
-                                    <img class='imgSelection' src='intdoor2.png' alt='door 2'>
-                                  </label>
-                                </div>
-                                <div>
-                                  <input type="radio" id="control_06" name="select" value="6">
-                                  <label for="control_06">
-                                    <img class='imgSelection' src='intdoor3.png' alt='door 3'>
-                                  </label>
-                                </div>
-                                
-                                
-                        </section>
+                        <br>
+                        <input type="radio" id="intDoorOne" value="intDoorOne" v-model="pickedIntDoor">
+                        <label class='inline' for="intDoorOne">
+                                <img class='imgSelection' src='intdoor1.jpg' alt='int door 1'>
+                        </label>
+                        
+                        <input type="radio" id="intDoorTwo" value="intDoorTwo" v-model="pickedIntDoor">
+                        <label class='inline' for="intDoorTwo">
+                            <img class='imgSelection' src='intdoor2.png' alt='door 2'>
+                        </label>
+
+                        <input type="radio" id="intDoorThree" value="intDoorThree" v-model="pickedIntDoor">
+                        <label class='inline' for="intDoorThree">
+                            <img class='imgSelection' src='intdoor3.png' alt='door 3'>
+                        </label>
+                        <br>
+                        <span>Picked: {{ pickedIntDoor }}</span>
+                        <br><br><br>
 
 
-
-
-                        <h2>Exterior Siding:</h2>
+                        <h2>Siding:</h2>
                         <hr>
 
+                        <br>
+                        <input type="radio" id="sidingOne" value="sidingOne" v-model="pickedSiding">
+                        <label class='inline' for="sidingOne">
+                                <img class='imgSelection' src='siding1.png' alt='siding 1'>
+                        </label>
+                        
+                        <input type="radio" id="sidingTwo" value="sidingTwo" v-model="pickedSiding">
+                        <label class='inline' for="sidingTwo">
+                            <img class='imgSelection' src='siding2.png' alt='siding 2'>
+                        </label>
+
+                    
+                        <br>
+                        <span>Picked: {{ pickedSiding }}</span>
+
+
+                        
 
 
                         <h2>Flooring:</h2>
                         <hr>
 
+
+                        <br>
+                        <input type="radio" id="floorOne" value="floorOne" v-model="pickedFlooring">
+                        <label class='inline' for="floorOne">
+                                <img class='imgSelection' src='floor1.png' alt='floor 1'>
+                        </label>
+                        
+                        <input type="radio" id="floorTwo" value="floorTwo" v-model="pickedFlooring">
+                        <label class='inline' for="floorTwo">
+                            <img class='imgSelection' src='floor2.png' alt='floor 2'>
+                        </label>
+
+                        <input type="radio" id="floorThree" value="floorThree" v-model="pickedFlooring">
+                        <label class='inline' for="floorThree">
+                            <img class='imgSelection' src='floor3.png' alt='floor 3'>
+                        </label>
+                        <br>
+                        <span>Picked: {{ pickedFlooring }}</span>
+                        <br><br><br>
+
+
+
                         <h2>Countertop:</h2>
                         <hr>
+
+
+                        <br>
+                        <input type="radio" id="counterOne" value="counterOne" v-model="pickedCounter">
+                        <label class='inline' for="counterOne">
+                                <img class='imgSelection' src='counter1.png' alt='counter 1'>
+                        </label>
+                        
+                        <input type="radio" id="counterTwo" value="counterTwo" v-model="pickedCounter">
+                        <label class='inline' for="counterTwo">
+                            <img class='imgSelection' src='counter2.jpg' alt='counter 2'>
+                        </label>
+
+                        <input type="radio" id="counterThree" value="counterThree" v-model="pickedCounter">
+                        <label class='inline' for="counterThree">
+                            <img class='imgSelection' src='counter3.jpg' alt='counter 3'>
+                        </label>
+
+                        <input type="radio" id="counterFour" value="counterFour" v-model="pickedCounter">
+                        <label class='inline' for="counterFour">
+                            <img class='imgSelection' src='counter4.jpg' alt='counter 4'>
+                        </label>
+                        <br>
+                        <span>Picked: {{ pickedCounter }}</span>
+                        <br><br><br>
 
                         
 
