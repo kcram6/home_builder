@@ -1,6 +1,28 @@
+var createUser = (user) => {
+    let data = `registerName=${encodeURIComponent(user.registerName)}`;
+    data += `&age=${encodeURIComponent(user.registerEmail)}`;
+    return fetch("http://localhost:8080/users", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: data
+    })
+};
+
+var getUser = () => {
+    return fetch("http://localhost:8080/users");
+}
+
+var getPlan = () => {
+    return fetch('http://localhost:8080/plans')
+}
+
+
 var app = new Vue({
     el: '#app',
     data: {
+
         showLandingPage: true,
         showRegisterPage: false,
         showSignInPage: false,
@@ -28,6 +50,7 @@ var app = new Vue({
         pickedCounter:'',
     },
     methods: {
+        
         addPlan: function() {
             console.log('button clicked');
         },
@@ -84,6 +107,7 @@ var app = new Vue({
             this.showChoosePlan = true;
             this.showLandingPage = false;
             console.log('make a new plan');
+            
         },
 
         closePlanButton: function() {
@@ -92,12 +116,13 @@ var app = new Vue({
             this.showUserBase = true;
             this.showChoosePlan = false;
             this.showLandingPage = false;
-            pickedExtDoor = '';
-            pickedIntDoor = '';
-            pickedSiding = '';
-            pickedFlooring = '';
-            pickedCounter = '';
+            this.pickedExtDoor = '';
+            this.pickedIntDoor = '';
+            this.pickedSiding = '';
+            this.pickedFlooring = '';
+            this.pickedCounter = '';
             console.log('close me');
+            
         }
 
         
