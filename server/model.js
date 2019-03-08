@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const moment = require('moment');
 
 
 
@@ -26,6 +27,11 @@ const planSchema = new mongoose.Schema({
   planName: {
     type: String,
     required: [true, "You must add an identifing name for the plan."]
+  },
+  planDate: {
+    type: Date,
+    required: true,
+    default: moment().format('MMMM Do, YYYY')
   },
   pickedExtDoor: {
     type: String,

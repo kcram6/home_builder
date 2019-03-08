@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const model = require('./model.js');
+// const moment = require('moment');
 
 
 
@@ -70,7 +71,8 @@ app.post('/plans', (req, res) => {
     intDoor: req.body.pickedIntDoor,
     extSiding: req.body.pickedExtSiding,
     flooring: req.body.pickedFlooring,
-    countertop: req.body.pickedCountertop
+    countertop: req.body.pickedCountertop,
+    planDate: req.body.planDate
 
   });
 

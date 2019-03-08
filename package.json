@@ -18,6 +18,7 @@
   "homepage": "https://github.com/d00297334/home_builder#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "moment": "^2.24.0",
     "sass": "^1.17.2"
   }
 }
