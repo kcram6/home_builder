@@ -31,7 +31,7 @@ const planSchema = new mongoose.Schema({
   planDate: {
     type: Date,
     required: true,
-    default: moment().format('MMMM Do, YYYY')
+    default: new Date()
   },
   pickedExtDoor: {
     type: String,

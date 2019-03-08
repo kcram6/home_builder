@@ -257,6 +257,16 @@ h2 {
 
 }
 
+.viewButton {
+    height:17px;
+    width:17px;
+
+}
+
+.viewButton:hover {
+    cursor:pointer;
+}
+
 .editButton:hover {
     cursor:pointer;
 }

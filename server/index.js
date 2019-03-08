@@ -67,13 +67,12 @@ app.post('/plans', (req, res) => {
 
   let plan = new model.Plan({
     planName: req.body.planName,
-    extDoor: req.body.pickedExtDoor,
-    intDoor: req.body.pickedIntDoor,
-    extSiding: req.body.pickedExtSiding,
-    flooring: req.body.pickedFlooring,
-    countertop: req.body.pickedCountertop,
-    planDate: req.body.planDate
-
+    pickedExtDoor: req.body.pickedExtDoor,
+    pickedIntDoor: req.body.pickedIntDoor,
+    pickedExtSiding: req.body.pickedExtSiding,
+    pickedFlooring: req.body.pickedFlooring,
+    pickedCountertop: req.body.pickedCountertop,
+    planDate: new Date()
   });
 
 
@@ -82,7 +81,7 @@ app.post('/plans', (req, res) => {
   }, function(err) {
     if (err.errors) {
       var message = {};
-      for (var e in err.erros) {
+      for (var e in err.errors) {
         message[e] = err.errors[e].message;
       }
       console.log("validation error saving plan", message);
@@ -125,6 +124,7 @@ app.put('/plans/:id', (req, res) => {
       plan.make = req.body.make;
       plan.model = req.body.model;
       plan.range = req.body.range;
+      plan.planDate = new Date();
 
       plan.save().then(function () {
         

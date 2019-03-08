@@ -1,3 +1,4 @@
+// import moment from './moment'
 
 var createUser = (user) => {
     let data = `registerName=${encodeURIComponent(user.registerName)}`;
@@ -18,7 +19,7 @@ var createPlan = (plan) => {
     data += `&pickedExtSiding=${encodeURIComponent(plan.pickedExtSiding)}`;
     data += `&pickedFlooring=${encodeURIComponent(plan.pickedFlooring)}`;
     data += `&pickedCountertop=${encodeURIComponent(plan.pickedCountertop)}`;
-    data += `&planDate=${encodeURIComponent(plan.planDate)}`;
+   
     return fetch('http://localhost:8080/plans', {
         method: "POST",
         headers: {
@@ -34,8 +35,8 @@ var createPlan = (plan) => {
             this.pickedFlooring = '';
             this.pickedExtSiding = '';
             this.planName = '';
-            this.closePlanButton();
-            this.loadPlans();
+            this.showChoosePlan = false;
+            
 
         } else {
             alert('problem');
@@ -180,6 +181,10 @@ var app = new Vue({
         validEmail() {
             return this.registerEmail !== '' && /.+@.+/.test(this.registerEmail) 
         },
+        
+        formatDate: function (date) {
+            return moment(date).format("YYYY-MM-DD");
+        },
 
     
         addPlan: function() {
@@ -193,9 +198,10 @@ var app = new Vue({
                 pickedIntDoor: this.pickedIntDoor,
                 pickedExtSiding: this.pickedExtSiding,
                 pickedFlooring: this.pickedFlooring,
-                pickedCountertop: this.pickedCountertop,
-                planDate: Date.now()
+                pickedCountertop: this.pickedCountertop
             }).then(res => {
+                this.showChoosePlan = false;
+                this.showUserBase = true;
                 this.loadPlans();
                 console.log('plan created');
                 console.log(this.planDate)

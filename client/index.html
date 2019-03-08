@@ -47,7 +47,7 @@
                     </div>
                     <div class='userBaseContainer'>
                         <div class='wrapper'>
-                            <h1 style='margin-bottom:0px; display: inline-block; font-size:1.5em'>Welcome {{ signInEmail }}</h1> <!--input user name-->
+                            <h1 style='margin-bottom:20px; display: inline-block; font-size:2em'>Welcome {{ signInEmail }}</h1> <!--input user name-->
 
                             <button v-on:click='newPlanButtonClicked' class='newPlanButton'><span class='plusSign'>+</span><br>
                             New Plan
@@ -55,8 +55,8 @@
                             <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
                             <hr>
                             <ul v-if='plans.length'><!--v for-->
-                                <li v-for='plan in plans' class='planDiv'>
-                                    {{ plan.planName }}  <span style='float:right'>Date:&nbsp; &nbsp;{{ plan.planDate }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;<img class='editButton' src='images/pencil.png' alt='edit'></span>
+                                <li v-for='plan in plans.slice().reverse()' class='planDiv'>
+                                    {{ plan.planName }}  <span style='float:right'>Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;<img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img class='viewButton' src='images/viewButton.png' alt='view Plan'></span>
                                 </li>
                             </ul>
 
@@ -135,8 +135,8 @@
                             </ul>
                         </div>
                             <div v-for="opt in extDoorOptions" class='inline'>
-                                <label class='inline' v-bind:class="{ selectedRadio: selectedRadio }">
-                                    <input v-on:click='selectedRadio = true' class='inline' type="radio" v-bind:value="opt" v-model="pickedExtDoor">
+                                <label class='inline' v-bind:class="{ selectedRadio: pickedExtDoor == opt }">
+                                    <input class='inline' type="radio" v-bind:value="opt" v-model="pickedExtDoor">
                                     <img class='imgSelection' v-bind:src="opt" alt='exterior door'>
                                 </label>
                             </div>
@@ -157,7 +157,7 @@
                             </ul>
                         </div>
                         <div v-for="opt in intDoorOptions" class='inline'>
-                            <label class='inline'>
+                            <label class='inline' v-bind:class="{ selectedRadio: pickedIntDoor == opt }">
                                 <input class='inline' type="radio" v-bind:value="opt" v-model="pickedIntDoor">
                                 <img class='imgSelection' v-bind:src="opt" alt='interior door'>
                             </label>
@@ -179,7 +179,7 @@
                             </ul>
                         </div>
                         <div v-for="opt in sidingOptions" class='inline'>
-                            <label class='inline'>
+                            <label class='inline' v-bind:class="{ selectedRadio: pickedExtSiding == opt }">
                                 <input class='inline' type="radio" v-bind:value="opt" v-model="pickedExtSiding">
                                 <img class='imgSelection' v-bind:src="opt" alt='siding'>
                             </label>
@@ -217,9 +217,9 @@
                             </ul>
                         </div>
                             <div v-for="opt in flooringOptions" class='inline'>
-                                    <label class='inline'>
-                                            <input class='inline' type="radio" v-bind:value="opt" v-model="pickedFlooring">
-                                            <img class='imgSelection' v-bind:src="opt" alt='flooring'>
+                                    <label class='inline' v-bind:class="{ selectedRadio: pickedFlooring == opt }">
+                                        <input class='inline' type="radio" v-bind:value="opt" v-model="pickedFlooring">
+                                        <img class='imgSelection' v-bind:src="opt" alt='flooring'>
                                     </label>
                             </div>
                             
@@ -240,9 +240,9 @@
                             </ul>
                         </div>
                             <div v-for="opt in countertopOptions" class='inline'>
-                                <label class='inline'>
-                                        <input class='inline' type="radio" v-bind:value="opt" v-model="pickedCountertop">
-                                        <img class='imgSelection' v-bind:src="opt" alt='countertops'>
+                                <label class='inline' v-bind:class="{ selectedRadio: pickedCountertop == opt }">
+                                    <input class='inline' type="radio" v-bind:value="opt" v-model="pickedCountertop">
+                                    <img class='imgSelection' v-bind:src="opt" alt='countertops'>
                                 </label>
                             </div>
                             
