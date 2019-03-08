@@ -226,11 +226,18 @@ h2 {
 
 .newPlanButton {
     background-color:#fbaf19;
-    padding:3px 15px;
+    padding:0px 20px;
+
     border-radius: 5px;
     color:#fff;
     box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
     float:right;
+    
+    
+}
+
+.newPlanButton h3 {
+    margin:8px;
 }
 
 .planDiv {
@@ -249,11 +256,12 @@ h2 {
 
 .plusSign {
     font-size:2em;
+
 }
 
 .editButton {
-    height:17px;
-    width:17px;
+    height:15px;
+    width:15px;
 
 }
 
@@ -262,6 +270,51 @@ h2 {
     width:17px;
 
 }
+
+.deleteButton {
+    height:15px;
+    width:15px;
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+}
+
+.deleteModal {
+    background-color:#707070;
+    border:2px solid #bdbdbd;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    padding:20px;
+    color:white;
+    width:250px;
+    position:absolute;
+    top: calc( 50% - 100px );
+    left: calc( 50% - 160px );
+
+}
+
+.noButton {
+    margin:15px;
+    padding: 5px 20px;
+    color:white;
+    background-color: #707070;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    border-radius:5px;
+}
+
+.yesButton {
+    margin:15px;
+    padding: 5px 20px;
+    color:white;
+    background-color: darkred;
+    box-shadow: 0px 3px 3px rgba(0,0,0,0.2);
+    border-radius:5px;
+}
+
+.yesButton:hover, .noButton:hover {
+    cursor: pointer;
+}
+
 
 .viewButton:hover {
     cursor:pointer;

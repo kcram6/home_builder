@@ -39,6 +39,14 @@
                 </div>
             </section>
 
+
+             <!--delete modal-->
+             <div class='center deleteModal' v-if='showDeleteModal'>
+                <h5>Are you sure you want to <b>delete</b> this plan?</h5>
+                <button class='noButton'v-on:click='showDeleteModal = false; showUserBase = true;'>No</button><button v-on:click='showUserBase = true; showDeleteModal = false' class='yesButton'>Yes</button>
+                    
+            </div>
+
             <!--user base-->
             <section v-show='showUserBase'>
                 <div class='wrapper' >
@@ -47,16 +55,22 @@
                     </div>
                     <div class='userBaseContainer'>
                         <div class='wrapper'>
-                            <h1 style='margin-bottom:20px; display: inline-block; font-size:2em'>Welcome {{ signInEmail }}</h1> <!--input user name-->
+                           
 
-                            <button v-on:click='newPlanButtonClicked' class='newPlanButton'><span class='plusSign'>+</span><br>
-                            New Plan
-                            </button>
+
+
+
+
+                            <!-- <h1 style='margin-bottom:20px; display: inline-block; font-size:2em'>Welcome {{ signInEmail }}</h1> input user name -->
+
+                            <button v-on:click='newPlanButtonClicked' class='newPlanButton'><span class='plusSign'>+</span> &nbsp; &nbsp;
+                            <h3 style='display:inline-block'>New Plan</h3>
+                            </button><br>
                             <h4 style='margin-top:40px; margin-bottom: 0px;'>PREVIOUS PLANS:</h4>
                             <hr>
                             <ul v-if='plans.length'><!--v for-->
                                 <li v-for='plan in plans.slice().reverse()' class='planDiv'>
-                                    {{ plan.planName }}  <span style='float:right'>Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;<img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img class='viewButton' src='images/viewButton.png' alt='view Plan'></span>
+                                    {{ plan.planName }}  <span style='float:right; font-size:0.8em;' >Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;<img class='viewButton' src='images/viewButton.png' alt='view Plan'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img v-on:click='showDeleteModal = true; showUserBase = false;' class='deleteButton' src='images/trash.png' alt='delete'></span>
                                 </li>
                             </ul>
 

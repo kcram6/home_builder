@@ -105,6 +105,10 @@ var app = new Vue({
         pickedFlooring:'',
         pickedCountertop:'',
 
+        //conditionals
+        editMode: false,
+        showDeleteModal: false,
+
     },
     watch: {
 
