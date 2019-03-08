@@ -23,24 +23,28 @@ const User = mongoose.model('User', userSchema);
 
 
 const planSchema = new mongoose.Schema({
-  extDoor: {
+  planName: {
+    type: String,
+    required: [true, "You must add an identifing name for the plan."]
+  },
+  pickedExtDoor: {
     type: String,
     required: [true, "You must make an exterior door selection."]
     // enum: [ "extDoor1.png", "extDoor2.png", "extDoor3.png"]
   },
-  intDoor: {
+  pickedIntDoor: {
     type: String,
     required: [true, "You must make an interior door selection."]
   },
-  extSiding: {
+  pickedExtSiding: {
     type: String,
     required: [true, "You must make a siding selection."]
   },
-  flooring: {
+  pickedFlooring: {
     type: String,
     required: [true, "You must make a flooring selection."]
   },
-  countertops: {
+  pickedCountertop: {
     type: String,
     required: [true, "You must make a countertop selection."]
   }

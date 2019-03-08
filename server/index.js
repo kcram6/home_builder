@@ -65,11 +65,12 @@ app.post('/plans', (req, res) => {
   console.log("the body", req.body);
 
   let plan = new model.Plan({
-    extDoor: req.body.extDoor,
-    intDoor: req.body.intDoor,
-    extSiding: req.body.extSiding,
-    flooring: req.body.flooring,
-    countertops: req.body.countertops
+    planName: req.body.planName,
+    extDoor: req.body.pickedExtDoor,
+    intDoor: req.body.pickedIntDoor,
+    extSiding: req.body.pickedExtSiding,
+    flooring: req.body.pickedFlooring,
+    countertop: req.body.pickedCountertop
 
   });
 
