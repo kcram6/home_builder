@@ -49,7 +49,7 @@ app.post('/users', (req, res) => {
     if (err.errors) {
       var message = {};
       for (var e in err.errors) {
-        message[e] = err.erros[e].message;
+        message[e] = err.errors[e].message;
       }
       console.log("validation error saving user", messages);
       res.status(422).json(message);
