@@ -121,7 +121,7 @@
                         <hr><br>
                         <input type="radio" id="extDoorOne" value="extDoorOne" v-model="pickedExtDoor">
                         <label class='inline' for="extDoorOne">
-                                <img class='imgSelection' src='exdoor1.jpg' alt='door 1'>
+                                <img class='imgSelection' src='https://i.imgur.com/DQG8VGU.jpg' alt='door 1'>
                         </label>
                         
                         <input type="radio" id="extDoorTwo" value="extDoorTwo" v-model="pickedExtDoor">
@@ -134,7 +134,7 @@
                             <img class='imgSelection' src='exdoor3.png' alt='door 3'>
                         </label>
                         <br>
-                        <span>Picked: {{ pickedExtDoor }}</span>
+                        
 
 
                         
@@ -161,14 +161,24 @@
                             <img class='imgSelection' src='intdoor3.png' alt='door 3'>
                         </label>
                         <br>
-                        <span>Picked: {{ pickedIntDoor }}</span>
+                        
                         <br><br><br>
 
 
                         <h2>Siding:</h2>
                         <hr>
 
-                        <br>
+                        <div v-for="opt in sidingOptions" class='inline'>
+                            <br>
+                            <label class='inline'>
+                                    <input class='inline' type="radio" v-bind:value="opt" v-model="pickedSiding">
+                                    <img class='imgSelection' v-bind:src="opt" alt='siding 1'>
+                            </label>
+                        </div>
+                        <span>Siding picked {{ pickedSiding }}</span>
+                        
+
+                        <!-- <br>
                         <input type="radio" id="sidingOne" value="sidingOne" v-model="pickedSiding">
                         <label class='inline' for="sidingOne">
                                 <img class='imgSelection' src='siding1.png' alt='siding 1'>
@@ -180,8 +190,8 @@
                         </label>
 
                     
-                        <br>
-                        <span>Picked: {{ pickedSiding }}</span>
+                        <br> -->
+                        
 
 
                         
@@ -207,7 +217,7 @@
                             <img class='imgSelection' src='floor3.png' alt='floor 3'>
                         </label>
                         <br>
-                        <span>Picked: {{ pickedFlooring }}</span>
+                        
                         <br><br><br>
 
 
@@ -237,7 +247,7 @@
                             <img class='imgSelection' src='counter4.jpg' alt='counter 4'>
                         </label>
                         <br>
-                        <span>Picked: {{ pickedCounter }}</span>
+                        
                         <br><br><br>
 
                         

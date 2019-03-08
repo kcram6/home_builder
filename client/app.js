@@ -23,6 +23,12 @@ var app = new Vue({
     el: '#app',
     data: {
 
+        sidingOptions: ["siding1.png", "siding2.png"],
+        extDoorOptions: ["exDoor1.jpg", "exdoor2.jpg", "exdoor3.png"],
+        intDoorOptions: ["intdoor1.jpg", "intdoor2.png", "intdoor3.png"],
+        flooringOptions: ["floor1.png", "floor2.png", "floor3.png"],
+        countertopOptions: ["counter1.png", "counter2.jpg", "counter3.jpg", "counter4.jpg"],
+
         showLandingPage: true,
         showRegisterPage: false,
         showSignInPage: false,
@@ -44,12 +50,15 @@ var app = new Vue({
         //plan attributes
         planName: '',
         pickedExtDoor:'',
+        pickedExtDoorLink:'',
         pickedIntDoor: '',
         pickedSiding:'',
         pickedFlooring:'',
         pickedCounter:'',
     },
     methods: {
+
+        
         
         addPlan: function() {
             console.log('button clicked');

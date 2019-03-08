@@ -9,7 +9,7 @@ const model = require('./model.js');
 
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors())
+app.use(cors());
 
 
 
@@ -44,28 +44,57 @@ app.post('/users', (req, res) => {
 
   user.save().then(function () {
     res.sendStatus(201);
+  }, function(err) {
+    if (err.errors) {
+      var message = {};
+      for (var e in err.errors) {
+        message[e] = err.erros[e].message;
+      }
+      console.log("validation error saving user", messages);
+      res.status(422).json(message);
+    } else {
+      console.log("unexpected error saving user", err);
+      res.status(500).json({err:"server error"});
+    }
   });
 });
+
 
 
 app.post('/plans', (req, res) => {
   console.log("the body", req.body);
 
-  if (!req.body.make) {
-    res.sendStatus(422);
-    return;
-  }
-
   let plan = new model.Plan({
-    make: req.body.make,
-    model: req.body.model,
-    range: req.body.range
+    extDoor: req.body.extDoor,
+    intDoor: req.body.intDoor,
+    extSiding: req.body.extSiding,
+    flooring: req.body.flooring,
+    countertops: req.body.countertops
+
   });
+
 
   plan.save().then(function () {
     res.sendStatus(201);
+  }, function(err) {
+    if (err.errors) {
+      var message = {};
+      for (var e in err.erros) {
+        message[e] = err.errors[e].message;
+      }
+      console.log("validation error saving plan", message);
+      res.status(422).json(message);
+    } else {
+      console.log("unexpected error saving plan", err);
+      res.status(500).json({err:"server error"});
+    }
   });
 });
+
+
+
+
+
 
 // RETRIEVE ACTION
 app.get('/plans/:id', (req, res) => {
@@ -119,12 +148,12 @@ app.delete('/plans/:id', (req, res) => {
       });
     } else {
       // query succeeded, but nothing found
-      alert('no id matching found');
+      console.log('no id matching found');
       res.sendStatus(404);
     }
   }, function (err) {
     // query error!
-    alert('query error')
+    console.log('query error')
     res.sendStatus(400);
   });
 });
