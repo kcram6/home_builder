@@ -68,6 +68,33 @@ var deletePlan = (id) => {
     })
 };
 
+var updatePlan = function (newPlan) {
+    console.log("newPlan: ", app.currentId);
+    let data = `planName=${encodeURIComponent(newPlan.planName)}`
+    data += `&pickedExtDoor=${encodeURIComponent(newPlan.pickedExtDoor)}`;
+    data += `&pickedIntDoor=${encodeURIComponent(newPlan.pickedIntDoor)}`;
+    data += `&pickedExtSiding=${encodeURIComponent(newPlan.pickedExtSiding)}`;
+    data += `&pickedFlooring=${encodeURIComponent(newPlan.pickedFlooring)}`;
+    data += `&pickedCountertop=${encodeURIComponent(newPlan.pickedCountertop)}`;
+    
+    console.log("update str: ", data);
+
+    fetch(`http://localhost:8080/plans/${app.currentId}`, {
+            body: data,
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        }).then(function (res) {
+          if (res.status == 200) {
+            app.loadPlans()
+            console.log('plans should reload after update');
+          } else {
+            console.log("error from fetch");
+          }
+        });
+  }
+
 
 
 
@@ -244,7 +271,31 @@ var app = new Vue({
             this.pickedFlooring = plan.pickedFlooring;
             this.pickedExtSiding = plan.pickedExtSiding;
             this.planName = plan.planName;
+        },
 
+        setCurrentId: function(plan) {
+            this.currentId = plan._id;
+        },
+
+        editPlan: function(plan) {
+            this.validatePlan();
+            updatePlan({
+                planName: this.planName,
+                pickedExtDoor: this.pickedExtDoor,
+                pickedIntDoor: this.pickedIntDoor,
+                pickedExtSiding: this.pickedExtSiding,
+                pickedFlooring: this.pickedFlooring,
+                pickedCountertop: this.pickedCountertop
+            
+                
+            })
+            this.showEditPlan = false;
+            this.showUserBase = true;
+            
+
+            // console.log("this is the plan ", plan);
+            
+            
         },
 
         deletePlan: function(plan) {
@@ -318,6 +369,7 @@ var app = new Vue({
             this.showUserBase = true;
             this.showChoosePlan = false;
             this.showLandingPage = false;
+            this.showEditPlan = false;
             this.pickedExtDoor = '';
             this.pickedIntDoor = '';
             this.pickedExtSiding = '';

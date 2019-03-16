@@ -70,7 +70,7 @@
                             <ul v-if='plans.length'><!--v for-->
                                 <li v-for='plan in plans.slice().reverse()' class='planDiv'>
                                     {{ plan.planName }}  <span style='float:right; font-size:0.8em;' >Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;
-                                        <img v-on:click='showEditPlan = true; showEditPlanOptions(plan)' class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <img v-on:click='setCurrentId(plan); showEditPlan = true; showEditPlanOptions(plan)' class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                         <img v-on:click='deletePlan(plan)' class='deleteButton' src='images/trash.png' alt='delete'></span>
                                 </li>
                             </ul>
@@ -89,7 +89,7 @@
                 <!--Edit Plan Picker-->
                 <section v-show='showEditPlan'>
                     <div class='smallerWrapper'>
-                        <img v-on:click='showEditPlan = false' class='closeButton' src='images/x.png' alt='close'>
+                        <img v-on:click='closePlanButton' class='closeButton' src='images/x.png' alt='close'>
                         <span style='color:#707070'>Name of Plan:</span> &nbsp;&nbsp;
                         <div class='error' v-if='nameErrors.length'>
                             <ul>
@@ -219,7 +219,7 @@
                         
                         
 
-                        <button v-on:click='addPlan()' class='saveFormButton'>SAVE</button>
+                        <button v-on:click='editPlan()' class='saveFormButton'>SAVE CHANGES</button>
                         
                     </div>
                 </section>
