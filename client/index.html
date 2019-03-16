@@ -70,8 +70,7 @@
                             <ul v-if='plans.length'><!--v for-->
                                 <li v-for='plan in plans.slice().reverse()' class='planDiv'>
                                     {{ plan.planName }}  <span style='float:right; font-size:0.8em;' >Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;
-                                        <img class='viewButton' src='images/viewButton.png' alt='view Plan'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                                        <img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <img v-on:click='showEditPlan = true; showEditPlanOptions(plan)' class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
                                         <img v-on:click='deletePlan(plan)' class='deleteButton' src='images/trash.png' alt='delete'></span>
                                 </li>
                             </ul>
@@ -83,11 +82,152 @@
                             
                     </div>    
                 </div>
+
+
+
+
+                <!--Edit Plan Picker-->
+                <section v-show='showEditPlan'>
+                    <div class='smallerWrapper'>
+                        <img v-on:click='showEditPlan = false' class='closeButton' src='images/x.png' alt='close'>
+                        <span style='color:#707070'>Name of Plan:</span> &nbsp;&nbsp;
+                        <div class='error' v-if='nameErrors.length'>
+                            <ul>
+                                <li v-for='error in nameErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                        <input v-model='planName' type='text' class='registerInput'><br>
+                        
+                        <h3 style='display:inline-block; margin-bottom:60px;'>Select one item from each category:</h3><br>
+                        
+                        
+                        <h2>Exterior Door:</h2>
+                        <hr>
+                        <br>
+                        <div class='error' v-if='extDoorErrors.length'>
+                            <ul>
+                                <li v-for='error in extDoorErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                            <div v-for="opt in extDoorOptions" class='inline'>
+                                <label class='inline' v-bind:class="{ selectedRadio: pickedExtDoor == opt }">
+                                    <input class='inline' type="radio" v-bind:value="opt" v-model="pickedExtDoor">
+                                    <img class='imgSelection' v-bind:src="opt" alt='exterior door'>
+                                </label>
+                            </div>
+                            
+                            
+                        
+            
+                        <br><br><br>
+                        
+                        <h2>Interior Door:</h2>
+                        <hr>
+                        <br>
+                        <div class='error' v-if='intDoorErrors.length'>
+                            <ul>
+                                <li v-for='error in intDoorErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div v-for="opt in intDoorOptions" class='inline'>
+                            <label class='inline' v-bind:class="{ selectedRadio: pickedIntDoor == opt }">
+                                <input class='inline' type="radio" v-bind:value="opt" v-model="pickedIntDoor">
+                                <img class='imgSelection' v-bind:src="opt" alt='interior door'>
+                            </label>
+                        </div>
+                            
+                            
+                        
+                        <br><br><br>
+
+
+                        <h2>Siding:</h2>
+                        <hr>
+                        <br>
+                        <div class='error' v-if='extSidingErrors.length'>
+                            <ul>
+                                <li v-for='error in extSidingErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div v-for="opt in sidingOptions" class='inline'>
+                            <label class='inline' v-bind:class="{ selectedRadio: pickedExtSiding == opt }">
+                                <input class='inline' type="radio" v-bind:value="opt" v-model="pickedExtSiding">
+                                <img class='imgSelection' v-bind:src="opt" alt='siding'>
+                            </label>
+                        </div>
+                        
+                        
+                        <br><br><br>
+                        
+                        
+
+
+                        
+
+
+                        <h2>Flooring:</h2>
+                        <hr>
+                        <br>
+                        <div class='error' v-if='flooringErrors.length'>
+                            <ul>
+                                <li v-for='error in flooringErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                            <div v-for="opt in flooringOptions" class='inline'>
+                                    <label class='inline' v-bind:class="{ selectedRadio: pickedFlooring == opt }">
+                                        <input class='inline' type="radio" v-bind:value="opt" v-model="pickedFlooring">
+                                        <img class='imgSelection' v-bind:src="opt" alt='flooring'>
+                                    </label>
+                            </div>
+                            
+                        
+                        
+                        <br><br><br>
+
+
+
+                        <h2>Countertop:</h2>
+                        <hr>
+                        <br>
+                        <div class='error' v-if='countertopErrors.length'>
+                            <ul>
+                                <li v-for='error in countertopErrors'>
+                                    {{ error }}
+                                </li>
+                            </ul>
+                        </div>
+                            <div v-for="opt in countertopOptions" class='inline'>
+                                <label class='inline' v-bind:class="{ selectedRadio: pickedCountertop == opt }">
+                                    <input class='inline' type="radio" v-bind:value="opt" v-model="pickedCountertop">
+                                    <img class='imgSelection' v-bind:src="opt" alt='countertops'>
+                                </label>
+                            </div>
+                            
+                            
+                        
+                        <br><br><br>
+                        
+                        
+
+                        <button v-on:click='addPlan()' class='saveFormButton'>SAVE</button>
+                        
+                    </div>
+                </section>
                 
             </section>
 
 
-            <!--Register Page-->
+            <!-- Register Page -->
             <section v-show="showRegisterPage">
                     <div class='wrapper'>
                         <img class='signInLogo' src='images/logo_png.png' alt='interstate logo'><br>

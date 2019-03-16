@@ -90,6 +90,7 @@ var app = new Vue({
         showSignInPage: false,
         showChoosePlan: false,
         showUserBase: false,
+        showEditPlan: false,
     
     
         //form inputs
@@ -234,6 +235,16 @@ var app = new Vue({
                 console.log(this.planDate)
             })
             
+        },
+
+        showEditPlanOptions: function(plan) {
+            this.pickedCountertop = plan.pickedCountertop;
+            this.pickedExtDoor = plan.pickedExtDoor;
+            this.pickedIntDoor = plan.pickedIntDoor;
+            this.pickedFlooring = plan.pickedFlooring;
+            this.pickedExtSiding = plan.pickedExtSiding;
+            this.planName = plan.planName;
+
         },
 
         deletePlan: function(plan) {
