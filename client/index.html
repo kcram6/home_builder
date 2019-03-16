@@ -2,7 +2,6 @@
 <html>
     <head>
         <link rel='stylesheet' href='style.css'>
-        <link href='style.scss'>
         <title>Interstate Home Builder</title>
     </head>
     <body>
@@ -43,7 +42,7 @@
              <!--delete modal-->
              <div class='center deleteModal' v-if='showDeleteModal'>
                 <h5>Are you sure you want to <b>delete</b> this plan?</h5>
-                <button class='noButton'v-on:click='showDeleteModal = false; showUserBase = true;'>No</button><button v-on:click='showUserBase = true; showDeleteModal = false' class='yesButton'>Yes</button>
+                <button class='noButton'v-on:click='showDeleteModal = false; showUserBase = true;'>No</button><button v-on:click='showUserBase = true; showDeleteModal = false; deletePlan(currentId)' class='yesButton'>Yes</button>
                     
             </div>
 
@@ -70,7 +69,10 @@
                             <hr>
                             <ul v-if='plans.length'><!--v for-->
                                 <li v-for='plan in plans.slice().reverse()' class='planDiv'>
-                                    {{ plan.planName }}  <span style='float:right; font-size:0.8em;' >Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;<img class='viewButton' src='images/viewButton.png' alt='view Plan'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;<img v-on:click='showDeleteModal = true; showUserBase = false;' class='deleteButton' src='images/trash.png' alt='delete'></span>
+                                    {{ plan.planName }}  <span style='float:right; font-size:0.8em;' >Date:&nbsp; &nbsp;{{ formatDate(plan.planDate) }} &nbsp;&nbsp; &nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <img class='viewButton' src='images/viewButton.png' alt='view Plan'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <img class='editButton' src='images/pencil.png' alt='edit'>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                                        <img v-on:click='deletePlan(plan)' class='deleteButton' src='images/trash.png' alt='delete'></span>
                                 </li>
                             </ul>
 
@@ -155,7 +157,7 @@
                                 </label>
                             </div>
                             
-                            <br><span>ext door picked {{ pickedExtDoor }}</span>
+                            
                         
             
                         <br><br><br>
@@ -177,7 +179,7 @@
                             </label>
                         </div>
                             
-                            <br><span>int door picked {{ pickedIntDoor }}</span>
+                            
                         
                         <br><br><br>
 
@@ -199,21 +201,9 @@
                             </label>
                         </div>
                         
-                        <br><span>Siding picked {{ pickedExtSiding }}</span>
-                        <br><br><br>
-                        <!-- <br>
-                        <input type="radio" id="sidingOne" value="sidingOne" v-model="pickedSiding">
-                        <label class='inline' for="sidingOne">
-                                <img class='imgSelection' src='siding1.png' alt='siding 1'>
-                        </label>
                         
-                        <input type="radio" id="sidingTwo" value="sidingTwo" v-model="pickedSiding">
-                        <label class='inline' for="sidingTwo">
-                            <img class='imgSelection' src='siding2.png' alt='siding 2'>
-                        </label>
-
-                    
-                        <br> OLD SOLUTION-->
+                        <br><br><br>
+                        
                         
 
 
@@ -237,7 +227,7 @@
                                     </label>
                             </div>
                             
-                        <br><span>Flooring picked {{ pickedFlooring }}</span>
+                        
                         
                         <br><br><br>
 
@@ -260,7 +250,7 @@
                                 </label>
                             </div>
                             
-                            <br><span>Countertop picked {{ pickedCountertop }}</span>
+                            
                         
                         <br><br><br>
                         
@@ -270,6 +260,14 @@
                         
                     </div>
                 </section>
+
+                <!-- <section>
+                    <div class='wrapper'>
+                        <div class='viewPlanForm'>
+
+                        </div>
+                    </div>
+                </section> -->
 
             </div>
         </div>

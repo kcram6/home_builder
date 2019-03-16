@@ -46,13 +46,31 @@ var createPlan = (plan) => {
 
 
 
-var getUser = () => {
+var getUsers = () => {
     return fetch("http://localhost:8080/users");
-}
+};
 
 var getPlans = () => {
-    return fetch('http://localhost:8080/plans')
-}
+    return fetch('http://localhost:8080/plans');
+};
+
+var deletePlan = (id) => {
+    return fetch(`http://localhost:8080/plans/${id}`, {
+        method: "DELETE",
+    }).then(function(res) {
+        if (res.status == 200) {
+            app.loadPlans()
+        } else {
+            console.log('delete error')
+        }
+           
+        
+    })
+};
+
+
+
+
 
 
 
@@ -109,8 +127,13 @@ var app = new Vue({
         editMode: false,
         showDeleteModal: false,
 
+        currentId: null,
+
     },
     watch: {
+        // currentId() {
+        //     console.log("current id: ", this.currentId);
+        // },
 
         // date(val) {
         //   if (val !== '')
@@ -211,6 +234,13 @@ var app = new Vue({
                 console.log(this.planDate)
             })
             
+        },
+
+        deletePlan: function(plan) {
+            this.currentId = plan._id;
+            console.log("plan to delete kath....", plan);
+            console.log(this.currentId)
+            deletePlan(this.currentId);
         },
 
         

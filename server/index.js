@@ -2,7 +2,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const model = require('./model.js');
-// const moment = require('moment');
 
 
 
@@ -121,13 +120,15 @@ app.put('/plans/:id', (req, res) => {
 
   model.Plan.findOne({ _id: req.params.id }).then(function (plan) {
     if (plan) {
-      plan.make = req.body.make;
-      plan.model = req.body.model;
-      plan.range = req.body.range;
+      plan.planName = req.body.planName;
+      plan.pickedExtDoor = req.body.pickedExtDoor;
+      plan.pickedIntDoor = req.body.pickedIntDoor;
+      plan.pickedExtSiding = req.body.pickedExtSiding;
+      plan.pickedFlooring = req.body.pickedFlooring;
+      plan.pickedCountertop = req.body.pickedCountertop;
       plan.planDate = new Date();
 
       plan.save().then(function () {
-        
         res.sendStatus(200);
       });
     } else {
@@ -148,6 +149,7 @@ app.delete('/plans/:id', (req, res) => {
     if (plan) {
       plan.delete().then(function () {
         res.json(plan);
+        res.sendStatus(200);
       });
     } else {
       // query succeeded, but nothing found
